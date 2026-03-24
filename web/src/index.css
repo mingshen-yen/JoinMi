@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --breakpoint-xs: 480px;
+
+  --color-primary: hsl(246, 55%, 43%);
+  --color-secondary: hsl(246, 67%, 26%);
+
+  --color-purple: hsl(246, 55%, 43%);
+  --color-pink: hsl(336, 100%, 65%);
+  --color-orange: hsl(15, 100%, 66%);
+  --color-yellow: hsl(38, 100%, 65%);
+  --color-green: hsl(160.93deg 55% 43%);
+  --color-gray: hsl(0, 0%, 64%);
+
+  --color-background: hsl(222 47% 6%);
+  --color-foreground: #ffffff;
+
+  --color-lightgray: hsl(0deg 0% 15%);
+  --color-darkgray: hsl(0deg 0% 8%);
+
+  --color-secondary-foreground: hsl(240, 0%, 44%);
+
+  --color-hover-purple: hsl(246, 67%, 26%);
+  --color-hover-text: hsl(220, 100%, 78%);
+
+  --color-border: hsl(246, 55%, 43%);
+  --color-ring: hsl(246, 55%, 43%);
+  --color-input: hsl(222 30% 18%);
+
+  --color-muted: hsl(222 30% 14%);
+  --color-muted-foreground: hsl(215 20% 55%);
+
+  --bg-brand-gradient: linear-gradient(
+    to right,
+    var(--color-brand-pink),
+    var(--color-brand-orange),
+    var(--color-brand-yellow)
+  );
+  --color-background: #0a0a0a;
+  --color-foreground: #ffffff;
+
+  --un-color-border-dotted: hsl(246deg 44% 22%);
+
+  --un-box-padding-x: 30px;
+  --un-box-padding-y: 30px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(16, 122, 129);
+    background-image: url("/bg.jpg");
+    background-repeat: repeat;
+    background-size: 600px;
+    color: var(--nxp-text);
+    font-family:
+      "Outfit",
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Inter",
+      sans-serif;
+  }
+
+  h1 {
+    @apply text-5xl sm:text-5xl lg:text-7xl font-black tracking-tight leading-none uppercase wrap-break-word;
+  }
+
+  h2 {
+    @apply text-3xl font-bold leading-none uppercase;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+}
+
+@utility container {
+  @apply mx-auto px-4 md:px-5 lg:px-6;
+}
