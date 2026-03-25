@@ -14,6 +14,7 @@
   --color-primary: hsl(246, 55%, 43%);
   --color-secondary: hsl(246, 67%, 26%);
 
+  --color-cyan: hsl(184, 78%, 34%);
   --color-purple: hsl(246, 55%, 43%);
   --color-pink: hsl(336, 100%, 65%);
   --color-orange: hsl(15, 100%, 66%);
@@ -79,7 +80,7 @@
   }
 
   h2 {
-    @apply text-3xl font-bold leading-none uppercase;
+    @apply text-4xl font-extrabold leading-none uppercase tracking-tight;
   }
 
   h3 {

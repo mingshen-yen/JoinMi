@@ -43,13 +43,15 @@ export const RegisterTourPage = () => {
 
   return (
     <>
-      <div className="max-w-3xl mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl text-white font-bold mb-4">
-            Register for Your Tour
+      <div className="max-w-3xl mx-auto px-4 py-8">
+        <div className="text-center mb-8">
+          <h2 className="text-white mb-4">
+            註冊參加導覽團
+            {/* Register for Your Tour */}
           </h2>
-          <p className="text-lg text-gray-200">
-            Fill out the form and reserve your spot
+          <p className="text-base text-gray-200">
+            填寫表格並預訂您的位置
+            {/* Fill out the form and reserve your spot */}
           </p>
         </div>
 
@@ -64,7 +66,7 @@ export const RegisterTourPage = () => {
               className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2"
             >
               <User className="w-4 h-4" />
-              Name
+              姓名{/* Name */}
             </label>
             <input
               type="text"
@@ -85,7 +87,7 @@ export const RegisterTourPage = () => {
               className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2"
             >
               <Mail className="w-4 h-4" />
-              Email
+              電子郵件{/* Email */}
             </label>
             <input
               type="email"
@@ -106,7 +108,7 @@ export const RegisterTourPage = () => {
               className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2"
             >
               <Phone className="w-4 h-4" />
-              Phone
+              手機號碼{/* Phone */}
             </label>
             <input
               type="tel"
@@ -129,7 +131,7 @@ export const RegisterTourPage = () => {
                 className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2"
               >
                 <CalendarSearch className="w-4 h-4" />
-                Tour
+                中文導覽{/* Tour */}
               </label>
               <select
                 id="tourType"
@@ -149,7 +151,8 @@ export const RegisterTourPage = () => {
                 className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2"
               >
                 <Users className="w-4 h-4" />
-                Number of Participants
+                人數
+                {/* Number of Participants */}
               </label>
               <select
                 id="participants"
@@ -172,7 +175,7 @@ export const RegisterTourPage = () => {
               className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2"
             >
               <MessageSquare className="w-4 h-4" />
-              Additional Information (Optional)
+              附加資訊（可選）{/* Additional Information (Optional) */}
             </label>
             <textarea
               id="message"
@@ -181,7 +184,7 @@ export const RegisterTourPage = () => {
               onChange={handleChange}
               rows={4}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-600 focus:border-transparent outline-none transition resize-none"
-              placeholder="Any special requests or questions?"
+              placeholder="有任何特殊要求或疑問嗎？" //"Any special requests or questions?"
             />
           </div>
 
@@ -192,12 +195,12 @@ export const RegisterTourPage = () => {
             className="w-full bg-gradient-to-r from-[rgb(33,226,223)] to-[rgb(22,171,181)] text-white py-4 px-6 rounded-lg font-semibold text-lg hover:from-[rgb(22,171,181)] hover:to-[rgb(22,171,181)] transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
           >
             <Coffee className="w-6 h-6" />
-            Reserve Your Spot
+            保留您的位置{/* Reserve Your Spot */}
           </button>
 
           <p className="text-center text-sm text-gray-500 mt-4">
-            Your reservation will be confirmed once the coffee donation is
-            received
+            {/* 收到咖啡捐款後，您的預訂將被確認。 */}
+            {/* Your reservation will be confirmed once the coffee donation is received */}
           </p>
         </form>
       </div>

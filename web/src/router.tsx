@@ -4,6 +4,7 @@ import { RegisterTourPage } from "./components/pages/RegisterTourPage";
 import { LandingPage } from "./components/pages/LandingPage";
 import { AboutPage } from "./components/pages/AboutPage";
 import { ToursPage } from "./components/pages/ToursPage";
+import { LoginPage } from "./components/pages/LoginPage";
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ export const router = createBrowserRouter([
       { path: "/tours", element: <ToursPage /> },
       { path: "/tour-register", element: <RegisterTourPage /> },
       { path: "/aboutus", element: <AboutPage /> },
+      { path: "/login", element: <LoginPage /> },
     ],
   },
 ]);
