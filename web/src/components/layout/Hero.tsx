@@ -4,8 +4,8 @@ export const Hero = () => {
   return (
     <div className="max-w-8xl mb-30 mt-6 px-4 sm:px-0 flex flex-wrap lg:flex-nowrap gap-6 sm:gap-8 items-center">
       {/* TEXT */}
-      <div className="space-y-6 order-2 sm:ml-10 lg:ml-2 -mt-10 sm:-mt-10 lg:mt-0 lg:order-1 basis-full lg:basis-2/3 xl:basis-3/5 shrink-0">
-        <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-none tracking-tight uppercase text-white">
+      <div className="space-y-6 order-2 -mt-10 sm:-mt-10 lg:mt-0 lg:order-1 basis-full lg:basis-2/3 shrink-0">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-none tracking-tight uppercase text-white">
           報名參加
           <br />
           即將舉行的
@@ -23,7 +23,7 @@ export const Hero = () => {
         </h1>
         <p className="text-gray-200 max-w-full sm:max-w-md text-base leading-relaxed">
           JoinMi
-          組織柏林博物館中文導覽。以全新的方式探索文化，發現城市魅力。立即註冊。
+          組織柏林的博物館中文導覽團。以全新的方式探索文化、發現城市魅力。
           {/* JoinMi organizes guided museum tours in Berlin. Discover culture and
           explore the city in a new way. Register today. */}
         </p>
@@ -45,7 +45,7 @@ export const Hero = () => {
       </div>
 
       {/* IMAGE */}
-      <div className="flex justify-center lg:justify-end order-1 mb-2 lg:mb-0">
+      <div className="flex justify-center lg:justify-end order-1 mb-5 lg:mb-0">
         <img
           src="Hero-img.png"
           alt="JoinMi illustration"

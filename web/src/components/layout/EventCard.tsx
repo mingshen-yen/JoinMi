@@ -1,5 +1,4 @@
 import { MapPin, Music4 } from "lucide-react";
-import { format } from "date-fns";
 import { Link } from "react-router";
 
 export const EventCard = () => {

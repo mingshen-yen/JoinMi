@@ -15,7 +15,7 @@ import { Link } from "react-router";
 const baseNavItems = [
   { to: "/tours", label: "Tours", icon: Sparkles },
   { to: "/tour-register", label: "Signup", icon: CalendarPlus },
-  { to: "/aboutus", label: "About", icon: House },
+  // { to: "/aboutus", label: "About", icon: House },
   { to: "/login", label: "Login", icon: User },
 ];
 
