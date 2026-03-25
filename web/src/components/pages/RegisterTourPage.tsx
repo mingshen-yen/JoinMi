@@ -16,14 +16,14 @@ export const RegisterTourPage = () => {
     phone: "",
     date: "",
     participants: "1",
-    tourType: "mountain",
+    tourType: "tire-palace",
     message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here we'll redirect to Buy Me a Coffee after form validation
     console.log("Form data:", formData);
+    handleBuyMeCoffee();
   };
 
   const handleChange = (
@@ -36,8 +36,8 @@ export const RegisterTourPage = () => {
       [e.target.name]: e.target.value,
     });
   };
+
   const handleBuyMeCoffee = () => {
-    // Replace 'yourusername' with actual Buy Me a Coffee username
     window.open("https://buymeacoffee.com/joinmi", "_blank");
   };
 
@@ -188,10 +188,9 @@ export const RegisterTourPage = () => {
             />
           </div>
 
-          {/* Buy Me a Coffee Button */}
+          {/* Submit to trigger native form validation first */}
           <button
-            type="button"
-            onClick={handleBuyMeCoffee}
+            type="submit"
             className="w-full bg-gradient-to-r from-[rgb(33,226,223)] to-[rgb(22,171,181)] text-white py-4 px-6 rounded-lg font-semibold text-lg hover:from-[rgb(22,171,181)] hover:to-[rgb(22,171,181)] transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
           >
             <Coffee className="w-6 h-6" />
@@ -199,7 +198,7 @@ export const RegisterTourPage = () => {
           </button>
 
           <p className="text-center text-sm text-gray-500 mt-4">
-            {/* 收到咖啡捐款後，您的預訂將被確認。 */}
+            收到咖啡捐款後，您的預訂將被確認。
             {/* Your reservation will be confirmed once the coffee donation is received */}
           </p>
         </form>
