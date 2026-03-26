@@ -11,7 +11,7 @@ export const Hero = () => {
           即將舉行的
           <br />
           <span className="text-transparent bg-clip-text bg-linear-to-r from-pink via-orange to-yellow">
-            中文導覽團
+            博物館導覽
           </span>
           {/* Sign up next <br />
           upcoming
@@ -32,13 +32,13 @@ export const Hero = () => {
           <a href="#howto">
             <Link to={"/tours"}>
               <button className="cursor-pointer bg-linear-to-r from-pink to-yellow text-black font-bold px-8 py-4 rounded-md uppercase text-sm tracking-widest">
-                搜尋導覽團{/* Find tours */}
+                搜尋導覽{/* Find tours */}
               </button>
             </Link>
           </a>
           <Link to={"/tour-register"}>
             <button className="border border-white text-white px-8 py-4 rounded-md uppercase text-sm font-bold tracking-widest hover:bg-white hover:text-black transition">
-              註冊參加{/* Signup tour */}
+              報名參加{/* Signup tour */}
             </button>
           </Link>
         </div>

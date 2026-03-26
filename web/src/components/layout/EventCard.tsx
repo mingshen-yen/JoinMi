@@ -1,4 +1,4 @@
-import { MapPin, Music4 } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { Link } from "react-router";
 
 export const EventCard = () => {
@@ -6,7 +6,7 @@ export const EventCard = () => {
   // const dayStr = format(new Date(event.startDate), "dd");
 
   return (
-    <div className="flex flex-wrap sm:flex-nowrap py-8 items-start text-white relative px-3 sm:px-0 border-slate-700 border-b">
+    <div className="flex flex-wrap sm:flex-nowrap py-8 items-start text-white relative px-3 sm:px-0 border-cyan-100 border-b">
       <div className="flex items-start w-full sm:w-auto">
         {/* DATE*/}
         <div className="bg-pink p-2 rounded-md text-black text-center w-13 lg:w-15 -mr-5 z-10 -mt-3 left-0 absolute sm:relative">
