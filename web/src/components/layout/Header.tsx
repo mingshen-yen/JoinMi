@@ -49,7 +49,7 @@ export const Header = () => {
         <nav className="flex justify-between items-center py-4 text-white">
           <Link to="/">
             <div className="text-4xl font-black tracking-tighter">
-              JoinMi Tour
+              JoinMi Berlin
               <span className="not-italic ml-1">✦</span>
             </div>
           </Link>

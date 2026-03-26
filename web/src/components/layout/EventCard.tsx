@@ -6,7 +6,7 @@ export const EventCard = () => {
   // const dayStr = format(new Date(event.startDate), "dd");
 
   return (
-    <div className="flex flex-wrap sm:flex-nowrap py-8 items-start text-white relative px-3 sm:px-0 border-cyan-100 border-b">
+    <div className="flex flex-wrap py-8 items-start text-white relative px-3 sm:px-0 border-cyan-100 border-b">
       <div className="flex items-start w-full sm:w-auto">
         {/* DATE*/}
         <div className="bg-pink p-2 rounded-md text-black text-center w-13 lg:w-15 -mr-5 z-10 -mt-3 left-0 absolute sm:relative">
@@ -17,7 +17,7 @@ export const EventCard = () => {
         </div>
 
         {/* IMAGE */}
-        <div className="relative w-full aspect-video rounded-md overflow-hidden sm:mr-8 sm:w-auto sm:h-30 sm:aspect-square md:aspect-4/3">
+        <div className="relative w-full aspect-video rounded-md overflow-hidden sm:mr-8 sm:h-30 sm:aspect-4/3">
           {/* <Link to={`/event/${event.id}`}> */}
           <img
             src={"/JoinMi-logo.png"}
@@ -31,12 +31,12 @@ export const EventCard = () => {
           {/* </Link> */}
         </div>
       </div>
-      <div className="flex flex-1 flex-wrap lg:flex-nowrap">
+      <div className="flex flex-1 flex-wrap">
         {/* EVENT TITLE AND LOCATION */}
         <div className="sm:mr-10 w-full lg:w-1/2 shrink-0">
           {/* <Link to={`/event/${event.id}`}> */}
           <h3 className="my-3 sm:mt-0 text-2xl md:text-3xl lg:text-4xl font-bold text-yellow transition-colors hover:text-purple">
-            淚宮中文導覽
+            淚宮導覽
           </h3>
           {/* </Link> */}
           {/* <Link to={`/location/${event.location.id}`}> */}

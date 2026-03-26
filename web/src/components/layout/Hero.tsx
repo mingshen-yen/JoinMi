@@ -8,7 +8,7 @@ export const Hero = () => {
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-none tracking-tight uppercase text-white">
           報名參加
           <br />
-          即將舉行的
+          柏林在地的
           <br />
           <span className="text-transparent bg-clip-text bg-linear-to-r from-pink via-orange to-yellow">
             博物館導覽

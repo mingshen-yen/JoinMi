@@ -38,7 +38,7 @@ export const RegisterTourPage = () => {
   };
 
   const handleBuyMeCoffee = () => {
-    window.open("https://buymeacoffee.com/joinmi", "_blank");
+    window.open("https://ko-fi.com/joinmi", "_blank");
   };
 
   return (
@@ -198,8 +198,8 @@ export const RegisterTourPage = () => {
           </button>
 
           <p className="text-center text-sm text-gray-500 mt-4">
-            收到咖啡捐款後，您的預訂將被確認。
-            {/* Your reservation will be confirmed once the coffee donation is received */}
+            只需一杯咖啡的支持 ☕，我們就會為您保留並確認預訂。
+            {/* Support with a coffee ☕ and your booking will be confirmed. */}
           </p>
         </form>
       </div>
