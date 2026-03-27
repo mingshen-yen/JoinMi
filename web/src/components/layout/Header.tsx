@@ -1,7 +1,7 @@
 import {
   Sparkles,
   House,
-  CalendarPlus,
+  Binoculars,
   UserPlus,
   Menu,
   X,
@@ -13,9 +13,10 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 
 const baseNavItems = [
-  { to: "/tours", label: "Tours", icon: Sparkles },
-  { to: "/tour-register", label: "Signup", icon: CalendarPlus },
-  // { to: "/aboutus", label: "About", icon: House },
+  //{ to: "/", label: "Home", icon: House },
+  { to: "/tours", label: "Tours", icon: Binoculars },
+  //{ to: "/tour-register", label: "Signup", icon: CalendarPlus },
+  { to: "/aboutus", label: "About Us", icon: Sparkles },
   // { to: "/login", label: "Login", icon: User },
 ];
 
@@ -49,7 +50,7 @@ export const Header = () => {
         <nav className="flex justify-between items-center py-4 text-white">
           <Link to="/">
             <div className="text-4xl font-black tracking-tighter">
-              JoinMi Berlin
+              JoinMi
               <span className="not-italic ml-1">✦</span>
             </div>
           </Link>
