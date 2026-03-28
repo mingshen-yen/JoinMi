@@ -31,15 +31,13 @@ export const Hero = () => {
         </p>
 
         <div className="flex flex-row gap-4">
-          <a href="#howto">
-            <Link to={"/tours"}>
-              <button className="cursor-pointer bg-linear-330 from-pink to-yellow text-black font-bold px-8 py-4 rounded-md uppercase text-sm tracking-widest">
-                探索導覽{/* Find tours */}
-              </button>
-            </Link>
-          </a>
+          <Link to={"/tours"}>
+            <button className="cursor-pointer bg-linear-330 from-pink to-yellow text-black font-bold px-8 py-4 rounded-lg uppercase text-sm tracking-widest">
+              探索導覽{/* Find tours */}
+            </button>
+          </Link>
           <Link to={"/tour-register"}>
-            <button className="border border-white text-white px-8 py-4 rounded-md uppercase text-sm font-bold tracking-widest hover:bg-white hover:text-black transition">
+            <button className="border border-white text-white px-8 py-4 rounded-lg uppercase text-sm font-bold tracking-widest hover:bg-white hover:text-black transition">
               報名參加{/* Signup tour */}
             </button>
           </Link>

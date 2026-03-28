@@ -1,5 +1,11 @@
 import { useParams, Link, useNavigate } from "react-router";
-import { Calendar, Link as LinkIcon, MapPin, Sparkles } from "lucide-react";
+import {
+  Calendar,
+  Link as LinkIcon,
+  MapPin,
+  Sparkles,
+  UserPlus,
+} from "lucide-react";
 import { EventMetaItem } from "../ui/EventMetaItem";
 import { Kicker } from "../ui/Kicker";
 
@@ -11,22 +17,30 @@ export const SingleTourPage = () => {
       <div className="container mx-auto">
         <div className="pb-5 sm:mt-10 sm:px-0 text-white">
           {/* TOP SECTION */}
-          <div className="grid grid-cols-1 md:grid-cols-2 md:items-stretch w-full">
-            <div className="mt-4 lg:mt-12">
-              <Kicker text="博物館" />
+          <div className="grid grid-cols-1 md:grid-cols-3 md:items-stretch w-full">
+            <div className=" mt-4 lg:mt-8 pb-2">
+              <div className="flex gap-1 pb-1">
+                <div className="px-2 bg-yellow flex justify-center items-center rounded-sm text-black font-black">
+                  博物館
+                </div>
+                <div className="px-2 bg-pink flex justify-center items-center rounded-sm text-black font-black">
+                  中文導覽
+                </div>
+              </div>
+              {/* <Kicker text="博物館" /> */}
               <h1>柏林淚宮</h1>
-              <div className="flex text-[17px] mt-1 ">
+              {/* <div className="flex text-[17px] mt-1 ">
                 <div className="w-20 bg-pink h-8 flex justify-center items-center rounded-md text-black font-black">
-                  28 MAR{/* {format(new Date(event.startDate), "dd MMM")} */}
+                  28 MAR
                 </div>
                 <div className="ml-4 flex items-center font-light">
                   <MapPin className="mr-1 h-5 w-5 " />
                   Berlin
                 </div>
-              </div>
+              </div> */}
             </div>
-            {/* image of the band */}
-            <div className="flex flex-wrap sm:flex-nowrap items-center">
+            {/* image */}
+            <div className="md:col-span-2 flex flex-wrap sm:flex-nowrap items-center">
               <img
                 src={
                   "https://media.schott.com/api/public/content/2b89b10588da4d87ab61f757beb18f9b?t=OnExW1920"
@@ -36,9 +50,19 @@ export const SingleTourPage = () => {
               />
             </div>
           </div>
-
+          <div className="pt-4">
+            <Link
+              to={"/tour-register"}
+              // className="flex items-center p-4 transition hover:text-cyan-200 cursor-pointer "
+            >
+              <button className="flex flex-wrap items-center text-[14px] font-bold border px-3 py-2 rounded-lg hover:bg-cyan-300 hover:text-cyan-700 transition-colors cursor-pointer">
+                <UserPlus className="w-4 h-4 mr-1" />
+                <span>報名</span>
+              </button>
+            </Link>
+          </div>
           {/* BOTTOM SECTION */}
-          <div className="lg:mt-25 mt-10 flex flex-wrap md:flex-nowrap w-full">
+          <div className="lg:mt-20 mt-10 flex flex-wrap md:flex-nowrap w-full">
             {/* LEFT MAIN CONTENT */}
             <div className="order-2 md:order-1 flex-1 gap-10 pr-10">
               {/* description */}

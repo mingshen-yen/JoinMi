@@ -138,7 +138,7 @@ export const AboutPage = () => {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-20 md:px-10">
-        <div className="grid gap-6 rounded-[32px] border border-neutral-200 bg-neutral-900 p-8 text-white shadow-xl md:grid-cols-[1.2fr_0.8fr] md:p-12">
+        <div className="grid gap-6 rounded-3xl border border-neutral-200 bg-neutral-900 p-8 text-white shadow-xl md:grid-cols-[1.2fr_0.8fr] md:p-12">
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.22em] text-neutral-400">
               Join the Journey
