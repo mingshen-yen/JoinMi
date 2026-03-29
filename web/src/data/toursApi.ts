@@ -3,7 +3,7 @@ import { api } from "./axios";
 export const TourApi = {
   getAllTours: async () => {
     const res = await api.get("/tours");
-    return res.data.results;
+    return res.data;
   },
   getTourById: async (id: string) => {
     const res = await api.get(`/tours/${id}`);
