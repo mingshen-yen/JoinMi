@@ -64,9 +64,9 @@ export const SingleTourPage = () => {
           {/* BOTTOM SECTION */}
           <div className="lg:mt-20 mt-10 flex flex-wrap md:flex-nowrap w-full">
             {/* LEFT MAIN CONTENT */}
-            <div className="order-2 md:order-1 flex-1 gap-10 pr-10">
+            <div className="order-2 md:order-1 flex-1 pr-10">
               {/* description */}
-              <div className="space-y-3">
+              <div className="space-y-3 pb-10">
                 <h2>背景介紹</h2>
                 <p>
                   從1962年至1989年的柏林圍牆時期，搭乘柏林城市快鐵、柏林地鐵和火車來往於東德與西德之間的西柏林、西德、外國旅客、及外交人員在此過境。建築前面成為他們與無法前往西柏林的東德人告別的地點，常常出現含淚離別的場景。朋友和家人不知道他們是否還會再次見面。
@@ -80,9 +80,19 @@ export const SingleTourPage = () => {
                   2011年9月14日，德國總理安格拉·梅克爾為其揭幕。在頭兩個星期，超過30,000人參觀了淚​​宮，免費進入。
                 </p>
               </div>
+              <div className="space-y-3 pb-10">
+                <h2>導覽員</h2>
+                <h3>Sara</h3>
+                <div className="flex flex-row">
+                  <span className="tag">中文</span>
+                  <span className="tag">廣東話</span>
+                  <span className="tag">English</span>
+                  <span className="tag">Deutsch</span>
+                </div>
+              </div>
             </div>
             {/* RIGHT ASIDE */}
-            <aside className="order-1 md:order-2 md:un-border-l basis-full md:basis-70 lg:basis-100 shrink-0">
+            <aside className="pb-10 order-1 md:order-2 basis-full md:basis-70 lg:basis-100 shrink-0">
               <div className="un-box-t-padding md:un-box-l-padding un-border-b md:border-none">
                 <EventMetaItem heading="導覽時間" Icon={Calendar}>
                   <div className="flex flex-row">
@@ -105,14 +115,14 @@ export const SingleTourPage = () => {
                     }
                   </a>
                 </EventMetaItem>
-                <EventMetaItem heading="類型" Icon={Sparkles}>
-                  <span className="inline-flex w-fit rounded text-white px-2 py-1 bg-pink text-[14px] font-bold uppercase tracking-wider mr-2">
+                {/* <EventMetaItem heading="類型" Icon={Sparkles}>
+                  <span className="inline-flex w-fit rounded text-black px-2 py-1 bg-pink text-[14px] font-bold uppercase tracking-wider mr-2">
                     中文導覽
                   </span>
-                </EventMetaItem>
+                </EventMetaItem> */}
                 <EventMetaItem heading="位置" Icon={MapPin}>
                   <div>Reichstagufer 17, 10117 Berlin</div>
-                  <div className="w-full overflow-hidden rounded-lg mt-2">
+                  <div className="w-fit overflow-hidden rounded-lg mt-2">
                     <iframe
                       src={mapEmbedUrl}
                       width="100%"

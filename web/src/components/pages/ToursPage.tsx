@@ -7,6 +7,8 @@ export const ToursPage = () => {
         <h2 className="text-white">Upcoming tours</h2>
       </div>
       <EventCard />
+      <EventCard />
+      <EventCard />
     </div>
   );
 };

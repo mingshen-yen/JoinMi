@@ -7,7 +7,7 @@ export const EventCard = () => {
   // const dayStr = format(new Date(event.startDate), "dd");
 
   return (
-    <div className="flex flex-wrap py-8 px-3 items-start text-white relative border-cyan-100 border-b">
+    <div className="flex flex-wrap py-12 px-3 sm:items-center text-white relative border-cyan-100 border-b">
       <div className="flex items-start sm:items-center w-full sm:w-auto sm:gap-4">
         {/* DATE in Mobile */}
         <div className="sm:hidden bg-pink p-3 rounded-md text-black text-center w-18 -mr-5 z-10 -mt-5 -left-1 absolute">
@@ -44,8 +44,11 @@ export const EventCard = () => {
       <div className="flex flex-1 flex-wrap">
         {/* EVENT TITLE AND LOCATION */}
         <div className="sm:mr-10 w-full lg:w-1/2 shrink-0">
+          <span className="inline-flex w-fit rounded text-black px-1.5 py-0.5 bg-pink text-[12px] font-bold uppercase tracking-wider mb-1 mt-3">
+            中文導覽
+          </span>
           <Link to={`/tours/id`}>
-            <h3 className="my-3 sm:mt-0 text-2xl md:text-3xl lg:text-4xl font-bold text-yellow transition-colors hover:text-cyan-300">
+            <h3 className="text-4xl md:text-5xl font-bold text-yellow transition-colors hover:text-cyan-300">
               柏林淚宮
             </h3>
           </Link>
@@ -61,11 +64,8 @@ export const EventCard = () => {
           {/* </Link> */}
         </div>
       </div>
-      <div className="py-4 sm:py-0">
-        <Link
-          to={"/tour-register"}
-          // className="flex items-center p-4 transition hover:text-cyan-200 cursor-pointer "
-        >
+      <div className="pt-10 sm:pt-4">
+        <Link to={"/tour-register"}>
           <button className="flex flex-wrap items-center text-[14px] font-bold border px-3 py-2 rounded-lg hover:bg-cyan-300 hover:text-cyan-700 transition-colors cursor-pointer">
             <UserPlus className="w-4 h-4 mr-1" />
             <span>報名</span>

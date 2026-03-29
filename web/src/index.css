@@ -86,6 +86,10 @@
   h3 {
     @apply text-xl;
   }
+
+  .tag {
+    @apply inline-flex w-fit rounded text-white px-1.5 py-0.5 bg-pink text-[14px] font-bold uppercase tracking-wider mr-2;
+  }
 }
 
 @utility container {
