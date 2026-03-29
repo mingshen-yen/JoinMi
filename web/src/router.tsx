@@ -6,14 +6,16 @@ import { AboutPage } from "./components/pages/AboutPage";
 import { ToursPage } from "./components/pages/ToursPage";
 import { LoginPage } from "./components/pages/LoginPage";
 import { SingleTourPage } from "./components/pages/SingleTourPage";
+import { CreateTourPage } from "./components/pages/CreateTourPage";
 
 export const router = createBrowserRouter([
   {
     element: <AppLayout></AppLayout>,
     children: [
       { path: "/", element: <LandingPage /> },
+      { path: "/create-tour", element: <CreateTourPage /> },
       { path: "/tours", element: <ToursPage /> },
-      { path: "/tours/id", element: <SingleTourPage /> },
+      { path: "/tours/:id", element: <SingleTourPage /> },
       { path: "/tour-register", element: <RegisterTourPage /> },
       { path: "/aboutus", element: <AboutPage /> },
       { path: "/login", element: <LoginPage /> },

@@ -5,6 +5,7 @@ import {
   UserPlus,
   Menu,
   X,
+  Plus,
   LogOut,
   User,
   CalendarRange,
@@ -18,6 +19,7 @@ const baseNavItems = [
   //{ to: "/tour-register", label: "Signup", icon: CalendarPlus },
   { to: "/aboutus", label: "About Us", icon: Sparkles },
   // { to: "/login", label: "Login", icon: User },
+  { to: "/create-tour", label: "New Tour", icon: Plus },
 ];
 
 export const Header = () => {

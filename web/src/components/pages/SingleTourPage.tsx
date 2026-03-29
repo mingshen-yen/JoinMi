@@ -1,15 +1,37 @@
-import { useParams, Link, useNavigate } from "react-router";
+import { useParams, Link } from "react-router";
 import {
   Calendar,
   Link as LinkIcon,
   MapPin,
   Sparkles,
   UserPlus,
+  Clock,
+  Ticket,
 } from "lucide-react";
 import { EventMetaItem } from "../ui/EventMetaItem";
-import { Kicker } from "../ui/Kicker";
+import { useEffect, useState } from "react";
+import type { TourResponse } from "../../types/tour";
+import { TourApi } from "../../data/toursApi";
 
 export const SingleTourPage = () => {
+  const { id } = useParams<{ id: string | any }>();
+  console.log(id);
+  const [tour, setTour] = useState<TourResponse[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    TourApi.getTourById(id)
+      .then(setTour)
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  }, []);
+
+  console.log(tour);
+
+  if (loading) return <p>Loading...</p>;
+  if (!tour) return <p>Tour not found.</p>;
+
   const mapEmbedUrl = `https://www.google.com/maps?q=52.5208,13.3869&output=embed`;
 
   return (
@@ -20,24 +42,16 @@ export const SingleTourPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 md:items-stretch w-full">
             <div className=" mt-4 lg:mt-8 pb-2">
               <div className="flex gap-1 pb-1">
-                <div className="px-2 bg-yellow flex justify-center items-center rounded-sm text-black font-black">
-                  博物館
+                <div className="px-2 py-0.5 bg-yellow flex justify-center items-center rounded-sm text-black text-[14px] font-black">
+                  展覽
                 </div>
-                <div className="px-2 bg-pink flex justify-center items-center rounded-sm text-black font-black">
+                <div className="px-2 py-0.5 bg-pink flex justify-center items-center rounded-sm text-black text-[14px] font-black">
                   中文導覽
                 </div>
               </div>
               {/* <Kicker text="博物館" /> */}
-              <h1>柏林淚宮</h1>
-              {/* <div className="flex text-[17px] mt-1 ">
-                <div className="w-20 bg-pink h-8 flex justify-center items-center rounded-md text-black font-black">
-                  28 MAR
-                </div>
-                <div className="ml-4 flex items-center font-light">
-                  <MapPin className="mr-1 h-5 w-5 " />
-                  Berlin
-                </div>
-              </div> */}
+              <h1>淚宮</h1>
+              <p className="text-lg text-gray-100">常設展：德國分裂之地</p>
             </div>
             {/* image */}
             <div className="md:col-span-2 flex flex-wrap sm:flex-nowrap items-center">
@@ -67,17 +81,16 @@ export const SingleTourPage = () => {
             <div className="order-2 md:order-1 flex-1 pr-10">
               {/* description */}
               <div className="space-y-3 pb-10">
-                <h2>背景介紹</h2>
-                <p>
-                  從1962年至1989年的柏林圍牆時期，搭乘柏林城市快鐵、柏林地鐵和火車來往於東德與西德之間的西柏林、西德、外國旅客、及外交人員在此過境。建築前面成為他們與無法前往西柏林的東德人告別的地點，常常出現含淚離別的場景。朋友和家人不知道他們是否還會再次見面。
-                  淚宮成為兩德分裂期間邊界兩側人們不同命運的一個獨特標誌。
-                  柏林圍牆倒塌後，該建築作為夜總會和舞台之用，直至2006年。
+                <h2>概述</h2>
+                <p className="leading-relaxed">
+                  從1961年到1989年，柏林圍牆將這座城市一分為二，東德和西德。只有少數幾個邊境口岸允許人們在兩部分之間往來。弗里德里希大街車站邊境口岸位於柏林市中心，每天有數百名旅客搭乘火車、輕軌或地鐵從這裡過境。在小小的出發大廳前，常常上演著感人的一幕：東德人向即將返回西德或永遠離開東德的親朋好友告別。他們必須經過這個大廳才能抵達西德。這些離別令人心碎，因為沒有人知道何時才能再次相遇。無數的淚水在「淚宮」中流淌。
                   <br />
-                  1990年10月2日，東德和西德正式統一的前一天，東德政府將一些官方建築列為保護建築，因為不確定兩德統一後它們將會如何。
+                  在歷史遺址上展示了兩個德國是如何建立的，柏林圍牆是如何建造的，以及淚宮的海關和護照檢查是如何進行的，還有弗里德里希大街邊境口岸的監視是如何進行的。
+                  在淚宮，參觀者可以體驗過境過程，並走進原汁原味的護照檢查亭。
                   <br />
-                  2011年9月15日，聯邦德國歷史博物館基金會開設永久性展覽，550平方米的面積，用原始文件，照片和錄音，錄影，呈現在兩德分裂時期旅客在檢查站的經歷，並概述了統一進程。
+                  展覽聚焦於親歷德國分裂的人們的個人故事。目擊者在採訪中講述了他們的逃亡經歷，他們如何透過信件和包裹與身處德國另一部分的家人保持聯繫，如何將文件和秘密照片偷運過境，以及他們如何抗議東德的旅行禁令。
                   <br />
-                  2011年9月14日，德國總理安格拉·梅克爾為其揭幕。在頭兩個星期，超過30,000人參觀了淚​​宮，免費進入。
+                  1989年11月9日，柏林圍牆倒塌。這一切為何如此突然？東德究竟發生了什麼事？人們又是如何度過那段時期的？在德國統一35年後，您可以在淚宮探索這些問題的答案。
                 </p>
               </div>
               <div className="space-y-3 pb-10">
@@ -85,7 +98,7 @@ export const SingleTourPage = () => {
                 <h3>Sara</h3>
                 <div className="flex flex-row">
                   <span className="tag">中文</span>
-                  <span className="tag">廣東話</span>
+                  <span className="tag">粵語</span>
                   <span className="tag">English</span>
                   <span className="tag">Deutsch</span>
                 </div>
@@ -101,25 +114,25 @@ export const SingleTourPage = () => {
                     </span>
                   </div>
                 </EventMetaItem>
+                <EventMetaItem heading="時長" Icon={Clock}>
+                  60 分鐘
+                </EventMetaItem>
+                <EventMetaItem heading="主題" Icon={Sparkles}>
+                  歷史遺址、逃亡、移居西方、邊境管制
+                </EventMetaItem>
+                <EventMetaItem heading="門票" Icon={Ticket}>
+                  免費入場
+                </EventMetaItem>
                 <EventMetaItem heading="網站" Icon={LinkIcon}>
                   <a
                     target={"_blank"}
                     rel="noopener noreferrer"
-                    href={
-                      "https://www.schott.com/zh-cn/about-us/references/palace-of-tears"
-                    }
-                    className="underline cursor-pointer hover:text-purple"
+                    href={"https://www.hdg.de/traenenpalast/"}
+                    className="underline cursor-pointer hover:text-cyan-300"
                   >
-                    {
-                      "https://www.schott.com/zh-cn/about-us/references/palace-of-tears"
-                    }
+                    {"www.hdg.de/traenenpalast/"}
                   </a>
                 </EventMetaItem>
-                {/* <EventMetaItem heading="類型" Icon={Sparkles}>
-                  <span className="inline-flex w-fit rounded text-black px-2 py-1 bg-pink text-[14px] font-bold uppercase tracking-wider mr-2">
-                    中文導覽
-                  </span>
-                </EventMetaItem> */}
                 <EventMetaItem heading="位置" Icon={MapPin}>
                   <div>Reichstagufer 17, 10117 Berlin</div>
                   <div className="w-fit overflow-hidden rounded-lg mt-2">
