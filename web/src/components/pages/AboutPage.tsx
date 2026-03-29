@@ -22,7 +22,7 @@ export const AboutPage = () => {
 
   return (
     <div className=" min-h-screen bg-cyan-50/80 text-neutral-900">
-      <section className="container relative overflow-hidden border-b border-neutral-200 bg-white">
+      <section className="relative overflow-hidden border-b border-neutral-200 bg-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.04),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.03),transparent_30%)]" />
         <div className="relative mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
           <div className="grid items-center gap-12 md:grid-cols-2">

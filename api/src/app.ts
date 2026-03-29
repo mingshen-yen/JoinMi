@@ -1,6 +1,8 @@
 import "#db";
 import express from "express";
 import cors from "cors";
+import { Tour } from "#models";
+import { tourRoutes } from "#routes";
 
 const app = express();
 const port = process.env.PORT;
@@ -17,6 +19,8 @@ app.use(express.json());
 app.route("/").get((req, res) => {
   res.json("Hello World");
 });
+
+app.use("/tours", tourRoutes);
 
 app.use("*splat", (req, res) => {
   throw new Error("Not found", { cause: { status: 404 } });

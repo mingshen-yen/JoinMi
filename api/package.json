@@ -16,6 +16,18 @@
     "#middlewave": {
       "development": "./src/middlewave/index.ts",
       "default": "./dist/middlewave/index.js"
+    },
+    "#models": {
+      "development": "./src/models/index.ts",
+      "default": "./dist/models/index.js"
+    },
+    "#routes": {
+      "development": "./src/routes/index.ts",
+      "default": "./dist/routes/index.js"
+    },
+    "#schema": {
+      "development": "./src/schema/index.ts",
+      "default": "./dist/schema/index.js"
     }
   },
   "scripts": {
