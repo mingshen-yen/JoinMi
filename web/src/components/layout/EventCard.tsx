@@ -1,8 +1,8 @@
 import { MapPin } from "lucide-react";
 import { Link } from "react-router";
 import { UserPlus } from "lucide-react";
-import type { TourResponse } from "../../types/tour";
 import { format } from "date-fns";
+import type { TourResponse } from "../../types/Tour";
 
 export const EventCard = ({ tour }: { tour: TourResponse }) => {
   const monthStr = format(new Date(tour.date), "MMM");
@@ -19,7 +19,7 @@ export const EventCard = ({ tour }: { tour: TourResponse }) => {
           </div>
         </div>
         {/* DATE in Desktop */}
-        <div className="hidden sm:flex sm:flex-col items-center justify-center p-6 rounded-md text-white sm:w-50">
+        <div className="hidden sm:flex sm:flex-col items-center justify-center p-6 rounded-md text-white sm:w-40">
           <div className="text-3xl sm:text-5xl font-black leading-none">
             {dayStr}
           </div>
@@ -30,11 +30,9 @@ export const EventCard = ({ tour }: { tour: TourResponse }) => {
 
         {/* IMAGE */}
         <div className="relative w-full aspect-video rounded-md overflow-hidden sm:mr-8 sm:h-30 sm:aspect-4/3">
-          <Link to={`/tours/id`}>
+          <Link to={`/tours/${tour.id}`}>
             <img
-              src={
-                "https://media.schott.com/api/public/content/2b89b10588da4d87ab61f757beb18f9b?t=OnExW1920"
-              }
+              src={tour.imageUrl}
               alt="img-title"
               onError={(e) => {
                 e.currentTarget.onerror = null;
@@ -48,17 +46,23 @@ export const EventCard = ({ tour }: { tour: TourResponse }) => {
       <div className="flex flex-1 flex-wrap">
         {/* EVENT TITLE AND LOCATION */}
         <div className="sm:mr-10 w-full lg:w-1/2 shrink-0">
-          <span className="inline-flex w-fit rounded text-black px-1.5 py-0.5 bg-pink text-[12px] font-bold uppercase tracking-wider mb-1 mt-3">
-            {tour.type}
-          </span>
+          <div className="flex flex-row gap-1">
+            <span className="inline-flex w-fit rounded text-black px-1.5 py-0.5 bg-pink text-[12px] font-bold uppercase tracking-wider mb-1 mt-3">
+              {tour.type}
+            </span>
+            <span className="inline-flex w-fit rounded text-black px-1.5 py-0.5 bg-yellow text-[12px] font-bold uppercase tracking-wider mb-1 mt-3">
+              {" "}
+              {tour.language}導覽
+            </span>
+          </div>
           <Link to={`/tours/${tour.id}`}>
-            <h3 className="text-4xl md:text-5xl font-bold text-yellow transition-colors hover:text-cyan-300">
+            <h3 className="text-4xl md:text-5xl font-bold text-white transition-colors hover:text-cyan-300">
               {tour.title}
             </h3>
           </Link>
           {/* <Link to={`/location/${event.location.id}`}> */}
-          <div className="flex items-start leading-[1.4rem] hover:text-cyan-300 mt-1 md:text-[18px]">
-            <MapPin className="mr-1.5 mb-1 mt-0.5 h-5 w-5 shrink-0 " />
+          <div className="flex items-start leading-[1.4rem] mt-1 text-[14px] lg:text-[16px]">
+            <MapPin className="mr-1.5 mb-1 mt-0.5 h-4 w-4 shrink-0 " />
             <div>
               <p>{tour.location}</p>
               {/* {event.location.city ? `${event.location.city}, ` : ``}

@@ -2,6 +2,7 @@ import { Schema, model } from "mongoose";
 
 const tourSchema = new Schema({
   title: { type: String, required: true },
+  subtitle: { type: String, required: false },
   description: { type: String, required: true },
   topic: { type: String, required: true },
   type: { type: String, required: true },

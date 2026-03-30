@@ -10,25 +10,27 @@ import {
 } from "lucide-react";
 import { EventMetaItem } from "../ui/EventMetaItem";
 import { useEffect, useState } from "react";
-import type { TourResponse } from "../../types/tour";
+import type { TourResponse } from "../../types/Tour";
 import { TourApi } from "../../data/toursApi";
 
 export const SingleTourPage = () => {
-  const { id } = useParams<{ id: string | any }>();
+  const { id } = useParams<{ id: string }>();
   console.log(id);
-  const [tour, setTour] = useState<TourResponse[]>([]);
+  const [tour, setTour] = useState<TourResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!id) return;
     setLoading(true);
     TourApi.getTourById(id)
       .then(setTour)
       .catch(console.error)
       .finally(() => setLoading(false));
-  }, []);
+  }, [id]);
 
   console.log(tour);
 
+  if (!id) return <p>Invalid tour id.</p>;
   if (loading) return <p>Loading...</p>;
   if (!tour) return <p>Tour not found.</p>;
 
@@ -42,16 +44,16 @@ export const SingleTourPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 md:items-stretch w-full">
             <div className=" mt-4 lg:mt-8 pb-2">
               <div className="flex gap-1 pb-1">
-                <div className="px-2 py-0.5 bg-yellow flex justify-center items-center rounded-sm text-black text-[14px] font-black">
-                  展覽
-                </div>
                 <div className="px-2 py-0.5 bg-pink flex justify-center items-center rounded-sm text-black text-[14px] font-black">
-                  中文導覽
+                  {tour.type}
+                </div>
+                <div className="px-2 py-0.5 bg-yellow flex justify-center items-center rounded-sm text-black text-[14px] font-black">
+                  {tour.language}導覽
                 </div>
               </div>
               {/* <Kicker text="博物館" /> */}
-              <h1>淚宮</h1>
-              <p className="text-lg text-gray-100">常設展：德國分裂之地</p>
+              <h1>{tour.title}</h1>
+              <p className="text-lg text-gray-100">{tour.subtitle}</p>
             </div>
             {/* image */}
             <div className="md:col-span-2 flex flex-wrap sm:flex-nowrap items-center">
@@ -82,25 +84,16 @@ export const SingleTourPage = () => {
               {/* description */}
               <div className="space-y-3 pb-10">
                 <h2>概述</h2>
-                <p className="leading-relaxed">
-                  從1961年到1989年，柏林圍牆將這座城市一分為二，東德和西德。只有少數幾個邊境口岸允許人們在兩部分之間往來。弗里德里希大街車站邊境口岸位於柏林市中心，每天有數百名旅客搭乘火車、輕軌或地鐵從這裡過境。在小小的出發大廳前，常常上演著感人的一幕：東德人向即將返回西德或永遠離開東德的親朋好友告別。他們必須經過這個大廳才能抵達西德。這些離別令人心碎，因為沒有人知道何時才能再次相遇。無數的淚水在「淚宮」中流淌。
-                  <br />
-                  在歷史遺址上展示了兩個德國是如何建立的，柏林圍牆是如何建造的，以及淚宮的海關和護照檢查是如何進行的，還有弗里德里希大街邊境口岸的監視是如何進行的。
-                  在淚宮，參觀者可以體驗過境過程，並走進原汁原味的護照檢查亭。
-                  <br />
-                  展覽聚焦於親歷德國分裂的人們的個人故事。目擊者在採訪中講述了他們的逃亡經歷，他們如何透過信件和包裹與身處德國另一部分的家人保持聯繫，如何將文件和秘密照片偷運過境，以及他們如何抗議東德的旅行禁令。
-                  <br />
-                  1989年11月9日，柏林圍牆倒塌。這一切為何如此突然？東德究竟發生了什麼事？人們又是如何度過那段時期的？在德國統一35年後，您可以在淚宮探索這些問題的答案。
-                </p>
+                <p className="leading-relaxed">{tour.description}</p>
               </div>
               <div className="space-y-3 pb-10">
                 <h2>導覽員</h2>
-                <h3>Sara</h3>
+                <h3>{tour.tourGuide.name}</h3>
                 <div className="flex flex-row">
-                  <span className="tag">中文</span>
-                  <span className="tag">粵語</span>
-                  <span className="tag">English</span>
-                  <span className="tag">Deutsch</span>
+                  {tour.tourGuide.languages.length > 0 &&
+                    tour.tourGuide.languages.map((lang) => {
+                      return <span className="tag">{lang}</span>;
+                    })}
                 </div>
               </div>
             </div>
@@ -109,32 +102,34 @@ export const SingleTourPage = () => {
               <div className="un-box-t-padding md:un-box-l-padding un-border-b md:border-none">
                 <EventMetaItem heading="導覽時間" Icon={Calendar}>
                   <div className="flex flex-row">
-                    <span className="w-12 flex flex-row">
-                      2026.03.26 Sat. 16:00
-                    </span>
+                    <span className="w-12 flex flex-row">{tour.date}</span>
                   </div>
                 </EventMetaItem>
                 <EventMetaItem heading="時長" Icon={Clock}>
-                  60 分鐘
+                  {tour.duration} 分鐘
                 </EventMetaItem>
                 <EventMetaItem heading="主題" Icon={Sparkles}>
-                  歷史遺址、逃亡、移居西方、邊境管制
+                  {tour.topic}
                 </EventMetaItem>
                 <EventMetaItem heading="門票" Icon={Ticket}>
-                  免費入場
+                  {tour.ticket === 0 ? (
+                    <p>免費入場</p>
+                  ) : (
+                    <p>{tour.ticket} 歐元</p>
+                  )}
                 </EventMetaItem>
                 <EventMetaItem heading="網站" Icon={LinkIcon}>
                   <a
                     target={"_blank"}
                     rel="noopener noreferrer"
-                    href={"https://www.hdg.de/traenenpalast/"}
+                    href={tour.webUrl}
                     className="underline cursor-pointer hover:text-cyan-300"
                   >
-                    {"www.hdg.de/traenenpalast/"}
+                    {tour.webUrl}
                   </a>
                 </EventMetaItem>
                 <EventMetaItem heading="位置" Icon={MapPin}>
-                  <div>Reichstagufer 17, 10117 Berlin</div>
+                  <div>{tour.location}</div>
                   <div className="w-fit overflow-hidden rounded-lg mt-2">
                     <iframe
                       src={mapEmbedUrl}

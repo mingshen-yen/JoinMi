@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { EventCard } from "../layout/EventCard";
 import { TourApi } from "../../data/toursApi";
-import type { TourResponse } from "../../types/tour";
+import type { TourResponse } from "../../types/Tour";
 
 export const ToursPage = () => {
   const [tours, setTours] = useState<TourResponse[]>([]);

@@ -2,6 +2,7 @@ import z4 from "zod/v4";
 
 export const TourSchema = z4.object({
   title: z4.string().min(1, "Title is required"),
+  subtitle: z4.string().optional(),
   description: z4.string().min(1, "Description is required"),
   topic: z4.string(),
   type: z4.string(),
