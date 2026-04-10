@@ -12,6 +12,7 @@ import { EventMetaItem } from "../ui/EventMetaItem";
 import { useEffect, useState } from "react";
 import type { TourResponse } from "../../types/Tour";
 import { TourApi } from "../../data/toursApi";
+import { format } from "date-fns";
 
 export const SingleTourPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -33,6 +34,8 @@ export const SingleTourPage = () => {
   if (!id) return <p>Invalid tour id.</p>;
   if (loading) return <p>Loading...</p>;
   if (!tour) return <p>Tour not found.</p>;
+
+  const tourdate = format(new Date(tour.date), "dd MMM yyyy, HH:mm");
 
   const mapEmbedUrl = `https://www.google.com/maps?q=52.5208,13.3869&output=embed`;
 
@@ -101,8 +104,8 @@ export const SingleTourPage = () => {
             <aside className="pb-10 order-1 md:order-2 basis-full md:basis-70 lg:basis-100 shrink-0">
               <div className="un-box-t-padding md:un-box-l-padding un-border-b md:border-none">
                 <EventMetaItem heading="導覽時間" Icon={Calendar}>
-                  <div className="flex flex-row">
-                    <span className="w-12 flex flex-row">{tour.date}</span>
+                  <div className="">
+                    <span className="w-12 uppercase">{tourdate}</span>
                   </div>
                 </EventMetaItem>
                 <EventMetaItem heading="時長" Icon={Clock}>

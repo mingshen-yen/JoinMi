@@ -1,7 +1,6 @@
 import "#db";
 import express from "express";
 import cors from "cors";
-import { Tour } from "#models";
 import { tourRoutes } from "#routes";
 
 const app = express();

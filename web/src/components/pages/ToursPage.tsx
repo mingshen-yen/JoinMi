@@ -17,9 +17,6 @@ export const ToursPage = () => {
 
   console.log(tours);
 
-  if (loading) return <p>Loading...</p>;
-  if (!tours) return <p>Tour not found.</p>;
-
   return (
     <div className="container">
       <div className="py-8">
