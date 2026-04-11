@@ -1,30 +1,35 @@
 import {
   Sparkles,
-  House,
   Binoculars,
-  UserPlus,
   Menu,
   X,
-  Plus,
-  LogOut,
   User,
+  Plus,
   CalendarRange,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
+import { LoginButton } from "../ui/LoginBtn";
+import { useAuthUser } from "../../hooks/useAuthUser";
+import { LogoutButton } from "../ui/LogoutBtn";
 
 const baseNavItems = [
-  //{ to: "/", label: "Home", icon: House },
-  { to: "/tours", label: "Tours", icon: Binoculars },
-  //{ to: "/tour-register", label: "Signup", icon: CalendarPlus },
+  { to: "/tours", label: "Discover", icon: Binoculars },
+  //{ to: "/booking", label: "Book", icon: CalendarPlus },
   { to: "/aboutus", label: "About Us", icon: Sparkles },
-  // { to: "/login", label: "Login", icon: User },
-  // { to: "/create-tour", label: "New Tour", icon: Plus },
+];
+
+const organizerNavItem = [
+  {
+    to: "/create-tour",
+    label: "Create New",
+    icon: Plus,
+  },
 ];
 
 export const Header = () => {
+  const { user, isAuthenticated } = useAuthUser();
   const [open, setOpen] = useState(false);
-
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const userDropdownRef = useRef<HTMLDivElement>(null);
 
@@ -65,8 +70,8 @@ export const Header = () => {
                   <Link
                     key={to}
                     to={to}
-                    className={`flex items-center p-4 transition hover:text-cyan-200 cursor-pointer ${
-                      active ? "text-cyan-200 " : " hover:text-cyan-200 "
+                    className={`flex items-center p-4 transition hover:text-cyan-500 cursor-pointer ${
+                      active ? "text-cyan-500 " : " hover:text-cyan-500 "
                     }`}
                   >
                     {Icon && <Icon className="h-4 w-4 mr-2" />}
@@ -75,6 +80,45 @@ export const Header = () => {
                 );
               })}
             </div>
+            {/* User Menu or Login Button */}
+            {isAuthenticated && user ? (
+              <div className="relative" ref={userDropdownRef}>
+                <button
+                  onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+                  className={`flex items-center px-2 transition ${userDropdownOpen ? "text-cyan-500" : "hover:text-cyan-500"} cursor-pointer gap-2`}
+                >
+                  <User className="h-4 w-4" />
+                  <span className="truncate max-w-37.5">{user.name}</span>
+                </button>
+
+                {/* Dropdown Menu */}
+                {userDropdownOpen && (
+                  <div className="absolute right-0 top-10 w-50 bg-cyan rounded-lg shadow-xl py-2 z-100">
+                    <div className="flex flex-col items-start px-4 py-2 transition gap-2 text-white">
+                      <Link to="/managed-events">
+                        <div className="flex items-center gap-2 px-2 py-4 hover:text-cyan-500">
+                          <CalendarRange className="h-4 w-4" />
+                          <span>Managed Tours</span>
+                        </div>
+                      </Link>
+                      <Link to={"/create-tour"}>
+                        <div className="flex items-center px-2 hover:text-cyan-500 gap-2">
+                          <Plus className="h-4 w-4" />
+                          <span>Create New</span>
+                        </div>
+                      </Link>
+                      <div className="px-2 py-4">
+                        <LogoutButton />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="flex items-center px-4 hover:text-cyan-500">
+                <LoginButton />
+              </div>
+            )}
           </div>
           {/* Mobile Burger Icon */}
           {!open && (
@@ -115,10 +159,40 @@ export const Header = () => {
                 onClick={() => setOpen(false)}
                 className="flex items-center px-8 py-4 hover:text-cyan-500"
               >
-                <Icon className="h-4 w-4 mr-3" />
+                <Icon className="h-4 w-4 mr-2" />
                 {label}
               </Link>
             ))}
+            {/* User Menu or Sign up Button Mobile */}
+            {isAuthenticated && user ? (
+              <>
+                <div className="flex items-center px-8 py-4 hover:text-cyan-500 gap-2">
+                  <User className="h-4 w-4" />
+                  {user.name}
+                </div>
+                <Link
+                  to="/managed-events"
+                  onClick={() => setOpen(false)}
+                  className="flex items-center px-12 py-3 hover:text-cyan-500 gap-2"
+                >
+                  <CalendarRange className="h-4 w-4" />
+                  Managed Tours
+                </Link>
+                <Link to={"/create-tour"}>
+                  <div className="flex items-center px-12 py-3 hover:text-cyan-500 gap-2">
+                    <Plus className="h-4 w-4" />
+                    <span>Create New</span>
+                  </div>
+                </Link>
+                <div className="px-12 py-3">
+                  <LogoutButton />
+                </div>
+              </>
+            ) : (
+              <div className="flex items-center px-8 py-4 hover:text-cyan-500">
+                <LoginButton />
+              </div>
+            )}
           </div>
         </nav>
       </div>

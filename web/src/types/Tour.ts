@@ -12,6 +12,7 @@ export const TourSchema = z4.object({
   location: z4.string(),
   imageUrl: z4.string().url("Image URL must be a valid URL").optional(),
   webUrl: z4.string().url("Web URL must be a valid URL").optional(),
+  bookingUrl: z4.string().optional(),
   ticket: z4.number().positive("Ticket price must be a positive number"),
   tourGuide: z4.object({
     name: z4.string().min(1, "Tour guide name is required"),

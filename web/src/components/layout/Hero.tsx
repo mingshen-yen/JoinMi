@@ -36,7 +36,7 @@ export const Hero = () => {
               探索導覽{/* Find tours */}
             </button>
           </Link>
-          <Link to={"/tour-register"}>
+          <Link to={"/booking"}>
             <button className="border border-white text-white px-8 py-4 rounded-lg uppercase text-sm font-bold tracking-widest hover:bg-white hover:text-black transition">
               報名參加{/* Signup tour */}
             </button>

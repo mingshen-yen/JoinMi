@@ -12,6 +12,7 @@ const tourSchema = new Schema({
   location: { type: String, required: true },
   imageUrl: { type: String, required: true },
   webUrl: { type: String, required: true },
+  bookingUrl: { type: String, required: true },
   ticket: { type: Number, required: true },
   tourGuide: {
     name: { type: String, required: true },

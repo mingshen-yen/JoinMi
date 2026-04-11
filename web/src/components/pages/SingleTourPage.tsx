@@ -29,8 +29,6 @@ export const SingleTourPage = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  console.log(tour);
-
   if (!id) return <p>Invalid tour id.</p>;
   if (loading) return <p>Loading...</p>;
   if (!tour) return <p>Tour not found.</p>;
@@ -44,41 +42,43 @@ export const SingleTourPage = () => {
       <div className="container mx-auto">
         <div className="pb-5 sm:mt-10 sm:px-0 text-white">
           {/* TOP SECTION */}
-          <div className="grid grid-cols-1 md:grid-cols-3 md:items-stretch w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:items-center w-full">
             <div className=" mt-4 lg:mt-8 pb-2">
               <div className="flex gap-1 pb-1">
-                <div className="px-2 py-0.5 bg-pink flex justify-center items-center rounded-sm text-black text-[14px] font-black">
-                  {tour.type}
+                <div className="px-2 py-0.5 bg-pink flex justify-center items-center rounded-sm text-black text-[14px] font-bold uppercase">
+                  {format(new Date(tour.date), "dd MMM")}
                 </div>
                 <div className="px-2 py-0.5 bg-yellow flex justify-center items-center rounded-sm text-black text-[14px] font-black">
                   {tour.language}導覽
                 </div>
               </div>
-              {/* <Kicker text="博物館" /> */}
               <h1>{tour.title}</h1>
               <p className="text-lg text-gray-100">{tour.subtitle}</p>
             </div>
             {/* image */}
             <div className="md:col-span-2 flex flex-wrap sm:flex-nowrap items-center">
               <img
-                src={
-                  "https://media.schott.com/api/public/content/2b89b10588da4d87ab61f757beb18f9b?t=OnExW1920"
-                }
+                src={tour.imageUrl}
                 alt={"img"}
-                className="w-full rounded-xl object-cover"
+                className="w-full rounded-xl object-cover h-70"
               />
             </div>
           </div>
           <div className="pt-4">
-            <Link
-              to={"/tour-register"}
-              // className="flex items-center p-4 transition hover:text-cyan-200 cursor-pointer "
+            <button
+              data-tally-open={tour.bookingUrl}
+              data-tally-layout="modal"
+              data-tally-width="400"
+              data-tally-align-left="1"
+              data-tally-hide-title="1"
+              data-tally-overlay="1"
+              data-tally-auto-close="3000"
+              data-tally-form-events-forwarding="1"
+              className="flex flex-wrap items-center text-[14px] font-bold border px-3 py-2 rounded-lg hover:bg-cyan-300 hover:text-cyan-700 transition-colors cursor-pointer"
             >
-              <button className="flex flex-wrap items-center text-[14px] font-bold border px-3 py-2 rounded-lg hover:bg-cyan-300 hover:text-cyan-700 transition-colors cursor-pointer">
-                <UserPlus className="w-4 h-4 mr-1" />
-                <span>報名</span>
-              </button>
-            </Link>
+              <UserPlus className="w-4 h-4 mr-1" />
+              <span>報名</span>
+            </button>
           </div>
           {/* BOTTOM SECTION */}
           <div className="lg:mt-20 mt-10 flex flex-wrap md:flex-nowrap w-full">
