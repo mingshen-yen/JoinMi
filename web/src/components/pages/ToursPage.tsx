@@ -19,26 +19,50 @@ export const ToursPage = () => {
 
   return (
     <div className="container">
-      <div className="py-8">
-        <h2 className="text-white">Discover Guided tours</h2>
-      </div>
-      <div className="grid grid-cols-1">
-        {loading && (
-          <div className="py-12 text-center font-display text-lg text-white">
-            Loading events...
-          </div>
-        )}
-        {!loading && tours.length > 0 ? (
-          <div>
-            {/* Result List */}
-            {tours.map((tour: TourResponse) => {
-              return <EventCard key={tour.id} tour={tour} />;
-            })}
-          </div>
-        ) : (
-          <> </>
-        )}
-      </div>
+      <section id="upcoming-tours">
+        <div className="py-8">
+          <h2 className="text-white">Upcoming Guided tours</h2>
+        </div>
+        <div className="grid grid-cols-1">
+          {loading && (
+            <div className="py-12 text-center font-display text-lg text-white">
+              Loading events...
+            </div>
+          )}
+          {!loading && tours.length > 0 ? (
+            <div>
+              {/* Result List */}
+              {tours.map((tour: TourResponse) => {
+                return <EventCard key={tour.id} tour={tour} />;
+              })}
+            </div>
+          ) : (
+            <> </>
+          )}
+        </div>
+      </section>
+      <section id="archiv-tours" className="pt-10">
+        <div className="py-8">
+          <h2 className="text-white">Archived Guided tours</h2>
+        </div>
+        <div className="grid grid-cols-1">
+          {loading && (
+            <div className="py-12 text-center font-display text-lg text-white">
+              Loading events...
+            </div>
+          )}
+          {!loading && tours.length > 0 ? (
+            <div>
+              {/* Result List */}
+              {tours.map((tour: TourResponse) => {
+                return <EventCard key={tour.id} tour={tour} />;
+              })}
+            </div>
+          ) : (
+            <> </>
+          )}
+        </div>
+      </section>
     </div>
   );
 };
