@@ -117,6 +117,3 @@ npm run preview
 - `npm run dev` — run with Node watch mode (development conditions)
 - `npm run build` — TypeScript compile to `dist/`
 - `npm start` — run compiled server
-
-## License
-No license specified yet. If you plan to open-source this project, consider adding a `LICENSE` file (e.g., MIT).
