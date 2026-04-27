@@ -8,7 +8,6 @@ Full-stack TypeScript app with:
 
 - `web/` — frontend (Vite + React)
 - `api/` — backend (Express API)
-> Note: both `api/` and `web/` currently include `node_modules/` in the repo. It’s recommended to remove those and rely on `package-lock.json` instead.
 
 ## Tech stack
 
